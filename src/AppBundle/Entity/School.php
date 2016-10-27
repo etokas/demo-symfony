@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="school")
  * @ORM\Entity
  */
-class School implements UserInterface
+class School implements ActivityInterface
 {
     /**
      * @var int
@@ -28,7 +28,7 @@ class School implements UserInterface
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="school", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="User", inversedBy="school")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;

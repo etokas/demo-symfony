@@ -7,4 +7,9 @@ services:
 
     user_manager:
         class: AppBundle\Manager\UserManager
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@event_dispatcher"]
+
+    registration_listener:
+        class: AppBundle\Listeners\RegistrationListener
+        tags:
+            - { name: kernel.event_subscriber }

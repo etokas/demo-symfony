@@ -9,7 +9,7 @@
 namespace AppBundle\Entity;
 
 
-interface UserInterface
+interface ActivityInterface
 {
     /**
      * @return User

@@ -46,7 +46,6 @@ class HomeController extends CRUDController
             $dispatcher = $this->getDispatcher();
             $event = new UserEvent($user->getApplicant());
             $dispatcher->dispatch(AppEvents::APPLICANT_REGISTER, $event);
-
         }
 
         return $this->render('AppBundle:CRUD:applicant.html.twig', [

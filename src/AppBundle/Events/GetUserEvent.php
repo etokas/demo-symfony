@@ -3,33 +3,35 @@
  * Created by PhpStorm.
  * User: sylva
  * Date: 27/10/2016
- * Time: 14:11
+ * Time: 21:22
  */
 
 namespace AppBundle\Events;
 
 
-use AppBundle\Entity\ActivityInterface;
+use AppBundle\Entity\User;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserEvent extends Event
+class GetUserEvent extends Event
 {
-    private $activity;
-
-    private $response;
-
-    public function __construct(ActivityInterface $user)
-    {
-        $this->activity = $user;
-    }
+    /**
+     * @var User
+     */
+    private $user;
 
     /**
-     * @return ActivityInterface
+     * @var Response
      */
-    public function getActivity()
+    private $response;
+
+    /**
+     * GetUserEvent constructor.
+     * @param User $user
+     */
+    public function __construct(User $user)
     {
-        return $this->activity;
+        $this->user = $user;
     }
 
     /**
@@ -39,8 +41,14 @@ class UserEvent extends Event
     public function setResponse(Response $response)
     {
         $this->response = $response;
+    }
 
-        return $this;
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
@@ -50,4 +58,5 @@ class UserEvent extends Event
     {
         return $this->response;
     }
+
 }

@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="applicant")
  * @ORM\Entity
  */
-class Applicant implements UserInterface
+class Applicant implements ActivityInterface
 {
     /**
      * @var int

@@ -69,16 +69,16 @@ class User
     /**
      * @var Applicant
      *
-     * @ORM\OneToOne(targetEntity="Applicant", mappedBy="user")
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @ORM\OneToOne(targetEntity="Applicant", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $applicant;
 
     /**
      * @var School
      *
-     * @ORM\OneToOne(targetEntity="School", mappedBy="user")
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @ORM\OneToOne(targetEntity="School", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $school;
 

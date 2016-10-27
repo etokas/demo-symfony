@@ -36,20 +36,20 @@ class UserEventListener implements EventSubscriberInterface
 
     public function applicantRegister(UserEvent $event)
     {
-        $actvity = $event->getUser();
+        $activity = $event->getActivity();
 
-        $manager = $this->userManager();
+        $user = $activity->getUser();
 
-        $manager->storeUser($actvity);
+        $this->userManager()->storeUser($user);
     }
 
     public function schoolRegister(UserEvent $event)
     {
-        $actvity = $event->getUser();
+        $activity = $event->getActivity();
 
-        $manager = $this->userManager();
+        $user = $activity->getUser();
 
-        $manager->storeUser($actvity);
+        $this->userManager()->storeUser($user);
     }
 
     /**

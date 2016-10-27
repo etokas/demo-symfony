@@ -16,5 +16,4 @@ abstract class CRUDController extends Controller
 {
 
 
-
 }
