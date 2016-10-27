@@ -1,0 +1,10 @@
+services:
+    user_listener:
+        class: AppBundle\Listeners\UserEventListener
+        arguments: ["@service_container"]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    user_manager:
+        class: AppBundle\Manager\UserManager
+        arguments: ["@doctrine.orm.entity_manager"]
