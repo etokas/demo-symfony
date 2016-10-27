@@ -15,6 +15,6 @@ class AppEvents
 
     const SCHOOL_REGISTER = 'school_register';
 
-    const USER_REGISTER = 'user_register'
+    const USER_REGISTER = 'user_register';
 
 }

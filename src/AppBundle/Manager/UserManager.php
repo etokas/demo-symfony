@@ -12,7 +12,7 @@ namespace AppBundle\Manager;
 use AppBundle\Entity\UserInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class UserManger
+class UserManager
 {
     /** @var  ObjectManager */
     private $manager;
@@ -28,6 +28,6 @@ class UserManger
 
     public function storeUser(UserInterface $user)
     {
-        //$this->manager->persist($user);
+        $this->manager->persist($user);
     }
 }
