@@ -14,6 +14,4 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 abstract class CRUDController extends Controller
 {
-
-
 }

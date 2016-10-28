@@ -39,7 +39,7 @@ class RegistrationType extends AbstractType
                    $form->add(User::SCHOOL, SchoolType::class);
                    break;
            }
-
+           
            $form->add('Envoyer', SubmitType::class);
 
         });
