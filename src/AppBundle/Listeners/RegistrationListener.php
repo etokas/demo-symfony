@@ -26,8 +26,7 @@ class RegistrationListener implements EventSubscriberInterface
     {
         $user = $event->getUser();
 
-        // Authentifier l'utilisateur
-        dump($user); die;
+        // Authentifier l'utilisateur dans symfony
     }
 
 }
