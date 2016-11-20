@@ -18,7 +18,7 @@ class RegistrationListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            AppEvents::USER_REGISTER => 'onRegister'
+            AppEvents::PRE_PERSIST => 'onRegister'
         ];
     }
 

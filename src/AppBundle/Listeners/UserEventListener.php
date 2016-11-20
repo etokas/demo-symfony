@@ -10,6 +10,7 @@ namespace AppBundle\Listeners;
 
 
 use AppBundle\AppEvents;
+use AppBundle\Entity\Applicant;
 use AppBundle\Events\UserEvent;
 use AppBundle\Manager\UserManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -29,21 +30,11 @@ class UserEventListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            AppEvents::APPLICANT_REGISTER => 'applicantRegister',
-            AppEvents::SCHOOL_REGISTER => 'schoolRegister'
+            AppEvents::USER_REGISTER => 'onRegistration'
         ];
     }
 
-    public function applicantRegister(UserEvent $event)
-    {
-        $activity = $event->getActivity();
-
-        $user = $activity->getUser();
-
-        $this->userManager()->storeUser($user);
-    }
-
-    public function schoolRegister(UserEvent $event)
+    public function onRegistration(UserEvent $event)
     {
         $activity = $event->getActivity();
 

@@ -13,3 +13,18 @@ services:
         class: AppBundle\Listeners\RegistrationListener
         tags:
             - { name: kernel.event_subscriber }
+
+    doctrine_listener:
+        class: AppBundle\Listeners\DoctrineSubscriber
+        tags:
+            - { name: doctrine.event_subscriber}
+
+    kernel_listeners:
+        class: AppBundle\Listeners\KernelException
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException}
+
+    app_collector:
+        class: AppBundle\Collector\RequestCollector
+        tags:
+            - { name: data_collector}
