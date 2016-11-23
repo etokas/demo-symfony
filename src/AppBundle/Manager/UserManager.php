@@ -37,7 +37,7 @@ class UserManager
     public function storeUser(User $user)
     {
         $event = new GetUserEvent($user);
-        $this->dispatcher->dispatch(AppEvents::USER_REGISTER, $event);
+        $this->dispatcher->dispatch(AppEvents::PRE_PERSIST, $event);
         $this->manager->persist($event->getUser());
         $this->manager->flush();
     }

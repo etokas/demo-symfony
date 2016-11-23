@@ -1,0 +1,18 @@
+{% block auto_complete_widget %}
+    {{ block('form_widget_simple') }}
+    {% if include_js|default(false) %}
+        <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    {% endif %}
+    <script type="text/javascript">
+    $(function () {
+            $('#{{ id }}').on('keyup', function () {
+                $.ajax({
+                    url: '{{ route }}',
+                    success : function (data) {
+                        console.log(data)
+                    }
+                })
+            })
+        })
+    </script>
+{% endblock %}

@@ -2,8 +2,10 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
 
-class UserRepository extends AbstractRepository
+
+class UserRepository extends EntityRepository
 {
 
 }

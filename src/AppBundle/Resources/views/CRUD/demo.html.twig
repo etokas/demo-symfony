@@ -1,0 +1,39 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        <span class="icon"><img src="" alt=""/></span>
+        <span class="sf-toolbar-status">Demo</span>
+    {% endset %}
+
+    {% set text %}
+        <div class="sf-toolbar-info-piece">
+            yppp
+        </div>
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { 'link': true }) }}
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+    <span class="label">
+        <span class="icon"><img src="" alt=""/></span>
+        <strong>Demo</strong>
+    </span>
+{% endblock %}
+
+{% block panel %}
+    {# Optional, for showing the most details. #}
+    <h2>Demo datacollector</h2>
+    <table>
+        <tr>
+            <th>Collector</th>
+        </tr>
+
+
+    </table>
+{% endblock %}

@@ -8,12 +8,13 @@ use AppBundle\Entity\User;
 use AppBundle\Events\UserEvent;
 use AppBundle\Form\RegistrationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class HomeController extends CRUDController
+class HomeController extends Controller
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
@@ -45,13 +46,26 @@ class HomeController extends CRUDController
 
             $dispatcher = $this->getDispatcher();
             $event = new UserEvent($user->getApplicant());
-            $dispatcher->dispatch(AppEvents::APPLICANT_REGISTER, $event);
+            $dispatcher->dispatch(AppEvents::USER_REGISTER, $event);
+
+            if (null != $response = $event->getResponse()){
+                return $response;
+            }
         }
 
         return $this->render('AppBundle:CRUD:applicant.html.twig', [
             'form' => $form->createView()
         ]);
 
+    }
+
+    /**
+     * @param Request $request
+     * @Route("/some/router", name="some_route")
+     */
+    public function someRouteAction(Request $request)
+    {
+        return $this->json('success');
     }
 
     /**
@@ -74,7 +88,11 @@ class HomeController extends CRUDController
 
             $dispatcher = $this->getDispatcher();
             $event = new UserEvent($user->getSchool());
-            $dispatcher->dispatch(AppEvents::SCHOOL_REGISTER, $event);
+            $dispatcher->dispatch(AppEvents::USER_REGISTER, $event);
+
+            if (null != $response = $event->getResponse()){
+                return $response;
+            }
         }
 
         return $this->render('AppBundle:CRUD:school.html.twig', [
