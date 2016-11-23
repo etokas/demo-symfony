@@ -25,6 +25,16 @@ services:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException}
 
     app_collector:
-        class: AppBundle\Collector\RequestCollector
+        class: AppBundle\Collector\DemoCollector
         tags:
-            - { name: data_collector}
+            -
+                name:     data_collector
+                template: 'AppBundle:CRUD:demo.html.twig'
+                id:       'demo'
+        public: false
+
+    autocomplete_type:
+        class: AppBundle\Form\AutocompleteType
+        arguments: [ "@router"]
+        tags:
+            - { name: form.type}

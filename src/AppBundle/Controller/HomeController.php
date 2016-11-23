@@ -61,6 +61,15 @@ class HomeController extends Controller
 
     /**
      * @param Request $request
+     * @Route("/some/router", name="some_route")
+     */
+    public function someRouteAction(Request $request)
+    {
+        return $this->json('success');
+    }
+
+    /**
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/ecole", name="register_school")
      */
