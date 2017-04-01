@@ -1,29 +1,18 @@
+{% extends '::base.html.twig' %}
 
-{#
-   This is the base template used as the application layout which contains the
-   common elements and decorates all the other templates.
-   See http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
-#}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>{% block title %}Symfony  application{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/froala_style.min.css' rel='stylesheet' type='text/css' />
-
-</head>
-
-<body>
-
-{% block content %}
+{% block body %}
 
 
     <a href="{{ path("register_applicant") }}">Demandeur</a>
     <a href="{{ path("register_school") }}">Ecole</a>
 
+
+
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Valider">
+    </form>
+
 {% endblock %}
-</body>
-</html>
+

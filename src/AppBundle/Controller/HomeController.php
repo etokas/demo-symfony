@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Form\FormFactory;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -20,8 +21,14 @@ class HomeController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="homepage")
      */
-    public function homeAction()
+    public function homeAction(Request $request)
     {
+
+        if ($request->isMethod('post')){
+
+
+        }
+
         return $this->render('AppBundle:CRUD:new.html.twig');
     }
 
